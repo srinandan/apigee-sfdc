@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="true" name="ServiceCalloutFetchSFDCBearerToken">
+    <DisplayName>ServiceCallout.FetchSFDCBearerToken</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Request clearPayload="true" variable="sfdc.access-token-request">
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+    </Request>
+    <Response>calloutResponse</Response>
+    <HTTPTargetConnection>
+        <Properties/>
+        <!--<URL>https://login.salesforce.com/services/oauth2/token</URL>-->
+        <URL>https://gso3--delapipoc.cs18.my.salesforce.com/services/oauth2/token</URL>
+    </HTTPTargetConnection>
+</ServiceCallout>

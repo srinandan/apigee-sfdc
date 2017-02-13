@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="369-salesforceaccount-rev1-2015-04-29">
+    <Basepaths>/v1/sdfc</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1444242761790</CreatedAt>
+    <CreatedBy>ssridhar@apigee.com</CreatedBy>
+    <Description></Description>
+    <DisplayName>SFAccount</DisplayName>
+    <LastModifiedAt>1444774127322</LastModifiedAt>
+    <LastModifiedBy>ssridhar@apigee.com</LastModifiedBy>
+    <Policies>
+        <Policy>AssignMessageCreateSFDCRequest</Policy>
+        <Policy>AssignMessagePrepareSFDCAccountRequest</Policy>
+        <Policy>ExtractVariablesSFDCAccessToken</Policy>
+        <Policy>ExtractVariablesSFDCAccountValues</Policy>
+        <Policy>Load-SFDC-Creds</Policy>
+        <Policy>LookupCacheCheckIfAccessTokenExists</Policy>
+        <Policy>PopulateCacheSaveSFAccessToken</Policy>
+        <Policy>PopulateCacheSaveSFTokenType</Policy>
+        <Policy>Prepare-SFDC-Opportunity-Message</Policy>
+        <Policy>ServiceCalloutFetchSFDCBearerToken</Policy>
+        <Policy>Set-SOQL</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://setOpportunitySOQL.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

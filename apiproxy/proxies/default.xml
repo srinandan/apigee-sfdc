@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <FaultRules/>
+                <Name>LookupCacheCheckIfAccessTokenExists</Name>
+            </Step>
+            <Step>
+                <FaultRules/>
+                <Name>Load-SFDC-Creds</Name>
+            </Step>
+            <Step>
+                <Condition>sfdc.cache.access-token is null</Condition>
+                <FaultRules/>
+                <Name>AssignMessageCreateSFDCRequest</Name>
+            </Step>
+            <Step>
+                <Condition>sfdc.cache.access-token is null</Condition>
+                <FaultRules/>
+                <Name>ServiceCalloutFetchSFDCBearerToken</Name>
+            </Step>
+            <Step>
+                <Condition>sfdc.cache.access-token is null</Condition>
+                <FaultRules/>
+                <Name>ExtractVariablesSFDCAccessToken</Name>
+            </Step>
+            <Step>
+                <Condition>sfdc.cache.access-token is null</Condition>
+                <FaultRules/>
+                <Name>PopulateCacheSaveSFTokenType</Name>
+            </Step>
+            <Step>
+                <Condition>sfdc.cache.access-token is null</Condition>
+                <FaultRules/>
+                <Name>PopulateCacheSaveSFAccessToken</Name>
+            </Step>
+        </Request>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="Search Patients">
+            <Description/>
+            <Request/>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/patients") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Search Opportunities">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>Set-SOQL</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/opportunity") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/v1/sdfc</BasePath>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="default">
+        <TargetEndpoint>default</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>

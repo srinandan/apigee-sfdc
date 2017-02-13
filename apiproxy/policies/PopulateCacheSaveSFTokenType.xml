@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PopulateCache async="false" continueOnError="false" enabled="true" name="PopulateCacheSaveSFTokenType">
+    <DisplayName>PopulateCache.SaveSFTokenType</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <CacheKey>
+      <Prefix>sfdc</Prefix>
+      <KeyFragment>token-type</KeyFragment>
+    </CacheKey>
+  	<CacheResource>sf-token-cache</CacheResource>
+    <Scope>Exclusive</Scope>
+    <ExpirySettings>
+        <TimeoutInSec>300</TimeoutInSec>
+    </ExpirySettings>
+    <Source>sfdc.token-type</Source>
+</PopulateCache>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LookupCache async="false" continueOnError="false" enabled="true" name="LookupCacheCheckIfAccessTokenExists">
+    <DisplayName>LookupCache.CheckIfAccessTokenExists</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <CacheKey>
+    	<Prefix>sfdc</Prefix>
+      	<KeyFragment>access-token></KeyFragment>
+    </CacheKey>
+    <CacheResource>sf-token-cache</CacheResource>
+    <Scope>Exclusive</Scope>
+    <AssignTo>sfdc.cache.access-token</AssignTo>
+</LookupCache>

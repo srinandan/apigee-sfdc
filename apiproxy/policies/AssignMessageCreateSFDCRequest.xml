@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessageCreateSFDCRequest">
+    <DisplayName>AssignMessage.CreateSFDCRequest</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Add>
+    	<FormParams>
+          <FormParam name="username">{sfdc.username}</FormParam>
+          <FormParam name="password">{sfdc.password}</FormParam>
+          <FormParam name="client_id">{sfdc.client-id}</FormParam>
+          <FormParam name="client_secret">{sfdc.client-secret}</FormParam>
+          <FormParam name="grant_type">password</FormParam>
+      	</FormParams>
+    </Add>
+	<AssignVariable>
+        <Name>acct-name</Name>
+      	<Ref>request.queryparam.name</Ref>
+    </AssignVariable>
+  	<AssignVariable>
+        <Name>acct-industry</Name>
+      	<Ref>request.queryparam.industry</Ref>
+    </AssignVariable>
+  	<AssignVariable>
+        <Name>acct-type</Name>
+      	<Ref>request.queryparam.type</Ref>
+    </AssignVariable>
+  	<AssignVariable>
+        <Name>acct-billing-city</Name>
+      	<Ref>request.queryparam.city</Ref>
+    </AssignVariable>
+  	<AssignVariable>
+        <Name>acct-phone</Name>
+      	<Ref>request.queryparam.phone</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  	<AssignTo createNew="true" transport="http" type="request">sfdc.access-token-request</AssignTo>
+</AssignMessage>

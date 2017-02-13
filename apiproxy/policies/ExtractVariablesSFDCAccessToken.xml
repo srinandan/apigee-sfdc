@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="ExtractVariablesSFDCAccessToken">
+    <DisplayName>ExtractVariables.SFDCAccessToken</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <JSONPayload>
+      	<Variable name="token-type">
+            <JSONPath>$.token_type</JSONPath>
+        </Variable>
+        <Variable name="access-token">
+            <JSONPath>$.access_token</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <VariablePrefix>sfdc</VariablePrefix>
+  <Source clearpayload="false">ServiceCallout.response</Source>
+</ExtractVariables>

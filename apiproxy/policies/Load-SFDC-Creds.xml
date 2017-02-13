@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<KeyValueMapOperations async="false" continueOnError="false" enabled="true" name="Load-SFDC-Creds" mapIdentifier="sfdc_creds">
+    <DisplayName>Load SFDC Creds</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <!--<ExclusiveCache>false</ExclusiveCache>
+    <ExpiryTimeInSecs>-1</ExpiryTimeInSecs>-->
+    <Get assignTo="sfdc.username" index="1">
+        <Key>
+            <Parameter>username</Parameter>
+        </Key>
+    </Get>
+  	<Get assignTo="sfdc.password" index="1">
+        <Key>
+            <Parameter>password</Parameter>
+        </Key>
+    </Get>
+  	<Get assignTo="sfdc.client-id" index="1">
+        <Key>
+            <Parameter>client_id</Parameter>
+        </Key>
+    </Get>
+  	<Get assignTo="sfdc.client-secret" index="1">
+        <Key>
+            <Parameter>client-secret</Parameter>
+        </Key>
+    </Get>
+    <Scope>environment</Scope>
+</KeyValueMapOperations>

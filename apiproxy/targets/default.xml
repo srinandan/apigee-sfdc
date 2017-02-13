@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TargetEndpoint name="default">
+    <Description/>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="Search Patients">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>AssignMessagePrepareSFDCAccountRequest</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/patients") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="Search Opportunities">
+            <Description/>
+            <Request>
+                <Step>
+                    <Name>Prepare-SFDC-Opportunity-Message</Name>
+                </Step>
+            </Request>
+            <Response/>
+            <Condition>(proxy.pathsuffix MatchesPath "/opportunity") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPTargetConnection>
+        <URL>https://gso3--delapipoc.cs18.my.salesforce.com/services/data/v31.0/query</URL>
+    </HTTPTargetConnection>
+</TargetEndpoint>

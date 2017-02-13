@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="Prepare-SFDC-Opportunity-Message">
+    <DisplayName>Prepare SFDC Opportunity Message</DisplayName>
+    <Properties/>
+    <Add>
+        <Headers>
+            <Header name="Authorization">{sfdc.token-type} {sfdc.access-token}</Header>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+    </Add>
+    <Set>
+        <!--<QueryParams><QueryParam name="q">SELECT+Account.Name+FROM+Opportunity</QueryParam></QueryParams> -->
+        <Verb>GET</Verb>
+    </Set>
+    <AssignVariable>
+        <Name>target.url</Name>
+        <Value>https://gso3--delapipoc.cs18.my.salesforce.com/services/data/v31.0/query?q=SELECT+Account.Name+FROM+Opportunity</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>

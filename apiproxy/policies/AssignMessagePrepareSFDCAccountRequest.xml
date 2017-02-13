@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AssignMessagePrepareSFDCAccountRequest">
+    <DisplayName>AssignMessage.PrepareSFDCAccountRequest</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Add>
+        <Headers>
+            <Header name="Authorization">{sfdc.token-type} {sfdc.access-token}</Header>
+            <Header name="Content-Type">application/json</Header>
+        </Headers>
+    </Add>
+    <!--<Set><Verb>POST</Verb><Payload contentType="application/json">\{"Name":"{acct-name}", "Industry":"{acct-industry}", "Type":"{acct-type}", "BillingCity":"{acct-billing-city}", "Phone":"{acct-phone}"}</Payload></Set> -->
+    <Set>
+        <!--<QueryParams><QueryParam name="q">SELECT+Account.Name+FROM+Opportunity</QueryParam></QueryParams> -->
+        <Verb>GET</Verb>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignVariable>
+        <Name>target.url</Name>
+        <Value>https://gso3--delapipoc.cs18.my.salesforce.com/services/data/v31.0/query?q=SELECT+Name+FROM+DTPC_Patient__c</Value>
+    </AssignVariable>
+    <AssignTo createNew="false" transport="http" type="request"/>
+</AssignMessage>
